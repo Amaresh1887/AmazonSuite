@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="103.85921">
+<testcase classname="Search Scenario" name="Scroll to the product" time="103.85921">
+<system-out><![CDATA[Given User already login to Amazon app......................................passed
+Then enter "65 inch TV" Product name in Search Box..........................passed
+Then click on Search in Search page.........................................passed
+Then user scroll to the mid of the product..................................passed
+]]></system-out>
+</testcase>
+</testsuite>

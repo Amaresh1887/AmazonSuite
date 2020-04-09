@@ -1,0 +1,7 @@
+library\Waits.class
+library\Log.class
+library\PropertyReader.class
+library\Scrolling.class
+library\TestBase.class
+library\AppiumSetUp.class
+library\DriverManagement.class
