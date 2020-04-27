@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11" started-at="2020-03-31T19:04:41 IST" finished-at="2020-03-31T19:04:42 IST">
+  <suite name="Default suite" duration-ms="126056" started-at="2020-04-27T18:50:56Z" finished-at="2020-04-27T18:53:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11" started-at="2020-03-31T19:04:41 IST" finished-at="2020-03-31T19:04:42 IST">
+    <test name="Default test" duration-ms="126056" started-at="2020-04-27T18:50:56Z" finished-at="2020-04-27T18:53:02Z">
+      <class name="amazonTestCase.AmazonLoginDemoTest">
+        <test-method status="PASS" signature="firstRun()[pri:0, instance:amazonTestCase.AmazonLoginDemoTest@56ef9176]" name="firstRun" duration-ms="126022" started-at="2020-04-27T18:50:56Z" finished-at="2020-04-27T18:53:02Z">
+        </test-method> <!-- firstRun -->
+      </class> <!-- amazonTestCase.AmazonLoginDemoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -5,11 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AndroidFindByChainSet;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 // All th objects belonging to one page will be defined in java class
@@ -22,8 +20,13 @@ public class HomePage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
-
+	@AndroidFindBy(id="com.amazon.mShop.android.shopping:id/web_home_shop_by_department_label")
+	private AndroidElement category;
 	
+	public AndroidElement getCategory() {
+		return category;
+	}
+
 	@AndroidFindBy(id="com.amazon.mShop.android.shopping:id/rs_search_src_text")
 	private AndroidElement HomeSearch;
 
@@ -54,7 +57,7 @@ public class HomePage {
 	
 	
 	
-	//driver.findElementByXpath("//android.widget.TextView[@text='Preference']");
+	
 	
 	
 	

@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,7 +24,7 @@ public class AddToCartPage {
 	
 	
 	
-	@AndroidFindBy(xpath="(//android.widget.Button[@text='Add to Cart']")
+	@AndroidFindBy(xpath="//android.widget.Button[@text='Add to Cart']")
 	private WebElement addToCart;
 
 

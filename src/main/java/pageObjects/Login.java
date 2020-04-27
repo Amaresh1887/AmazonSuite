@@ -1,7 +1,6 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -35,7 +34,13 @@ public class Login {
 	@AndroidFindBy(className="android.widget.Button")
 	private AndroidElement selectButton;
 	
+	@AndroidFindBy(id="com.amazon.mShop.android.shopping:id/signin_to_yourAccount")
+	private AndroidElement signInMsg;
 	
+	
+	public AndroidElement getSignInMsg() {
+		return signInMsg;
+	}
 	public AndroidElement getsignInButton()
 	{
 		

@@ -1,4 +1,0 @@
-stepDefinition\Hooks.class
-cucumberOptions\TestRunner.class
-stepDefinition\Login.class
-stepDefinition\Search.class
