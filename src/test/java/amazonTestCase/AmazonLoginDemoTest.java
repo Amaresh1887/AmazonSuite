@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.xml.xpath.XPath;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -66,9 +68,10 @@ public class AmazonLoginDemoTest extends baseHelper {
 			Assert.fail();
 		}
 		baseHelper.getScreenshot("Ammazon Home Page");
-		baseHelper.waitforSeconds(10);
-		
-		if (driver.findElement(By.xpath("//android.view.View[@text='close']")).isDisplayed()) {
+		baseHelper.waitforSeconds(5);
+		Boolean iselementpresent = driver.findElementsByXPath("//android.view.View[@text='close']").size() != 0;
+
+		if (iselementpresent) {
 			try {
 				home.getEnglish().click();
 				home.buttons.get(0).click();
@@ -87,7 +90,9 @@ public class AmazonLoginDemoTest extends baseHelper {
 		page.getProduct().click();
 
 		baseHelper.waitforSeconds(10);
-		if (driver.findElement(By.xpath("//android.view.View[@text='close']")).isDisplayed()) {
+		Boolean popup = driver.findElementsByXPath("//android.view.View[@text='close']").size() != 0;
+
+		if (popup) {
 			try {
 				home.getEnglish().click();
 				home.buttons.get(0).click();
