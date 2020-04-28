@@ -26,23 +26,34 @@ import pageObjects.ProductPage;
 public class AmazonLoginDemoTest extends baseHelper {
 
 	public static AndroidDriver<AndroidElement> driver;
+	public static readDataFromExcel data;
+	public static Login login;
+	public static HomePage home;
+	public static Utilities utl;
+	public static ProductPage page;
+	public static AddToCartPage cartPage;
 
 	@Test
 	public void firstRun() throws InterruptedException, IOException {
 
-		readDataFromExcel data = new readDataFromExcel();
+		// Start the service if not Started
+		service = startServer();
+		// Set Capabilities
+		AndroidDriver<AndroidElement> driver = capabilities("AmazonStoreApp");
+		data = new readDataFromExcel();
+		// Create Object for pageobject
+		login = new Login(driver);
+		home = new HomePage(driver);
+		utl = new Utilities(driver);
+		page = new ProductPage(driver);
+		cartPage = new AddToCartPage(driver);
+
 		ArrayList al = data.getData("AmazonLogin", "LoginC");
 		String username = al.get(1).toString();
 		String password = al.get(2).toString();
 		String SearchItem = al.get(3).toString();
 		String Itemname = al.get(4).toString();
 
-		service = startServer();
-		// Set Capabilities
-		AndroidDriver<AndroidElement> driver = capabilities("AmazonStoreApp");
-
-		// Creat Object for Login Class
-		Login login = new Login(driver);
 		String dispalyname = login.getSignInMsg().getText();
 		// Verify Correct App installed and Launched successfully or not
 		Assert.assertEquals(dispalyname, baseHelper.getProperty("appdisplayname"));
@@ -52,19 +63,19 @@ public class AmazonLoginDemoTest extends baseHelper {
 		login.getEditField().sendKeys(username);
 		baseHelper.waitforSeconds(5);
 		login.getselectButton().click();
-		baseHelper.waitforSeconds(5);
+		baseHelper.waitforSeconds(4);
 
 		login.getEditField().sendKeys(password);
 
 		login.getselectButton().click();
-		baseHelper.waitforSeconds(15);
+		baseHelper.waitforSeconds(7);
 
 		// Creat Object for HomePAGE Class
-		HomePage home = new HomePage(driver);
+
 		String homemessage = home.getCategory().getText();
 		// Verify login successfull or not
-		
-		if(!homemessage.contains(baseHelper.getProperty("homeMsg"))) {
+
+		if (!homemessage.contains(baseHelper.getProperty("homeMsg"))) {
 			Assert.fail();
 		}
 		baseHelper.getScreenshot("Ammazon Home Page");
@@ -82,14 +93,13 @@ public class AmazonLoginDemoTest extends baseHelper {
 		baseHelper.waitforSeconds(5);
 		home.getHomeSearch().sendKeys(SearchItem);
 		baseHelper.waitforSeconds(5);
-		Utilities utl = new Utilities(driver);
+
 		utl.EnterKey();
 		baseHelper.getScreenshot("Search Results");
 		utl.scrollToText(Itemname);
-		ProductPage page = new ProductPage(driver);
 		page.getProduct().click();
 
-		baseHelper.waitforSeconds(10);
+		baseHelper.waitforSeconds(5);
 		Boolean popup = driver.findElementsByXPath("//android.view.View[@text='close']").size() != 0;
 
 		if (popup) {
@@ -100,10 +110,9 @@ public class AmazonLoginDemoTest extends baseHelper {
 			}
 		}
 		// Rotate Screen
-		AddToCartPage cartPage = new AddToCartPage(driver);
 		baseHelper.lRotate();
 
-		baseHelper.waitforSeconds(10);
+		baseHelper.waitforSeconds(5);
 		baseHelper.getScreenshot("LANDSCAPE Mode");
 
 		String displayProductName = cartPage.getProductName().getText();
@@ -115,8 +124,7 @@ public class AmazonLoginDemoTest extends baseHelper {
 		baseHelper.getScreenshot("Portrait");
 		utl.scrollToText(baseHelper.getProperty("AddToCart"));
 
-		 cartPage.getAddToCart().click();
-		
+		cartPage.getAddToCart().click();
 
 	}
 
