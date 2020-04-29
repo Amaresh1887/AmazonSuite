@@ -70,8 +70,7 @@ public class AmazonSearch extends baseHelper {
 		Boolean iselementpresent = driver.findElementsByXPath("//android.view.View[@text='close']").size() != 0;
 
 		if (iselementpresent) {
-		    	home.getEnglish().click();
-				home.buttons.get(0).click();
+			home.clickPopUp();
 			
 		}
 		home.getHomeSearch().click();
@@ -89,8 +88,7 @@ public class AmazonSearch extends baseHelper {
 
 		if (popup) {
 			
-				home.getEnglish().click();
-				home.buttons.get(0).click();
+				home.clickPopUp();
 			
 			
 		}

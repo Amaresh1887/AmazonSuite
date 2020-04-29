@@ -55,7 +55,10 @@ public class HomePage {
 	}
 	
 	
-	
+	public void clickPopUp() {
+		getEnglish().click();
+		buttons.get(0).click();
+	}
 	
 	
 	
