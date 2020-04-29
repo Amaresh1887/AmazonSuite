@@ -16,6 +16,8 @@ import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -34,6 +36,7 @@ public class baseHelper {
 	 * To Start Android Port
 	 * 
 	 */
+	
 	public AppiumDriverLocalService startServer() {
 
 		boolean flag = checkIfServerIsRunnning(4723);
@@ -41,6 +44,24 @@ public class baseHelper {
 
 			service = AppiumDriverLocalService.buildDefaultService();
 			service.start();
+		}
+		return service;
+
+	}
+	
+	/**
+	 * Author: Amaresh
+	 * 
+	 * To Stop Android Port
+	 * 
+	 */
+	public AppiumDriverLocalService stopServer() {
+
+		boolean flag = checkIfServerIsRunnning(4723);
+		if (!flag) {
+
+			service = AppiumDriverLocalService.buildDefaultService();
+			service.stop();
 		}
 		return service;
 

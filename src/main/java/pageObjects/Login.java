@@ -7,6 +7,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import library.baseHelper;
 
 public class Login {
 	public Login(AndroidDriver<AndroidElement> driver)
@@ -66,5 +67,15 @@ public class Login {
 		return forgotPassword;
 	}
 
-	
+	public void loginApp(String username,String password) throws InterruptedException {
+		getsignInButton().click();
+		getEditField().sendKeys(username);
+		baseHelper.waitforSeconds(5);
+		getselectButton().click();
+		baseHelper.waitforSeconds(4);
+		getEditField().sendKeys(password);
+
+		getselectButton().click();
+		baseHelper.waitforSeconds(7);
+	}
 }
